@@ -11,6 +11,21 @@ export default function CalculationForm() {
   const [state, formAction, isPending] = useActionState(calculateDebt, initialState);
   const [aplicarMulta, setAplicarMulta] = useState(true);
   const [aplicarHonorarios, setAplicarHonorarios] = useState(true);
+  const [valorPrincipal, setValorPrincipal] = useState('');
+
+  const formatCurrencyInput = (value: string) => {
+    const numbers = value.replace(/\D/g, '');
+    if (!numbers) return '';
+    const amount = Number(numbers) / 100;
+    return new Intl.NumberFormat('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(amount);
+  };
+
+  const handleValorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValorPrincipal(formatCurrencyInput(e.target.value));
+  };
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 flex-1 lg:min-h-0">
@@ -57,6 +72,8 @@ export default function CalculationForm() {
                     placeholder="0,00"
                     className="input-field !pl-12"
                     required
+                    value={valorPrincipal}
+                    onChange={handleValorChange}
                   />
                 </div>
               </div>
