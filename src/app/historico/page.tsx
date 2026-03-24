@@ -1,4 +1,4 @@
-import { getCalculations, deleteCalculation } from '@/actions/history';
+import { getCalculations } from '@/actions/history';
 import { formatCurrency, formatDate } from '@/lib/formatters';
 import Link from 'next/link';
 import DeleteButton from './DeleteButton';
@@ -40,6 +40,7 @@ export default async function HistoricoPage() {
           </div>
         ) : (
           <div className="flex flex-col gap-4">
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {calculations.map((calc: any) => (
               <div key={calc.id} className="card p-5 group transition-colors hover:border-gold/30">
                 <div className="flex justify-between items-start mb-4">
