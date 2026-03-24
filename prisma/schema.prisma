@@ -1,0 +1,29 @@
+datasource db {
+  provider = "postgresql"
+}
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Calculation {
+  id                 String   @id @default(uuid())
+  createdAt          DateTime @default(now())
+  valorOriginal      Float
+  dataInicial        DateTime
+  dataFinal          DateTime
+  igpmAcumulado      Float
+  principalCorrigido Float
+  mesesJuros         Int
+  jurosMora          Float
+  subtotal           Float
+  aplicouMulta       Boolean
+  percentualMulta    Float
+  multa              Float
+  totalComMulta      Float
+  aplicouHonorarios  Boolean
+  percentualHonorarios Float
+  honorarios         Float
+  totalFinal         Float
+}
