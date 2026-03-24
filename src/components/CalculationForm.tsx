@@ -13,9 +13,9 @@ export default function CalculationForm() {
   const [aplicarHonorarios, setAplicarHonorarios] = useState(true);
 
   return (
-    <div className="flex gap-6 flex-1 min-h-0">
+    <div className="flex flex-col lg:flex-row gap-6 flex-1 lg:min-h-0">
       {/* Left: Form */}
-      <div className="w-[400px] shrink-0 flex flex-col gap-6">
+      <div className="w-full lg:w-[400px] shrink-0 flex flex-col gap-6">
         <form action={formAction} className="flex flex-col gap-6">
           {/* Dados do Contrato */}
           <div className="card">
@@ -62,7 +62,7 @@ export default function CalculationForm() {
               </div>
 
               {/* Dates */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm text-text-secondary mb-2" htmlFor="dataInicial">
                     Data de Assinatura
