@@ -3,6 +3,8 @@ import { formatCurrency, formatDate } from '@/lib/formatters';
 import Link from 'next/link';
 import DeleteButton from './DeleteButton';
 
+export const dynamic = 'force-dynamic';
+
 export default async function HistoricoPage() {
   const calculations = await getCalculations();
 
